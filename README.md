@@ -120,7 +120,7 @@ db_table = ""
     ```Linux
     crontab -e
     ```
-    设置你的 crontab 任务：
+    设置你的 crontab 任务：`SSPU_AutoCheck.py` 和 `report_Server.py`
     （crontab 语法）
     ```
     每五分钟执行   */5 * * * *
@@ -152,5 +152,11 @@ db_table = ""
  pyhon3 main.py
  ```
 
+## 自定义你的功能
+ 1. 图片API `img_WebAPI.py`  你可以在这里定义属于你自己的 se (HO) tu (MO) 连接
+ 2. 如果你不是二工大的学生 但是也想用这个的话  你可以在 `SSPU_AutoCheck.py`  里编写 你的自动打卡程序
+ 3. 如果你想给妃爱酱自定义更多的 talk 的话 你可以在 `continue_Server.py` 里的 ```python   def talk(self, recv, num): ``` 方法里加入 你想要的 感兴趣content
+ 4. `continue_Server.py` 也包含了现有的机器人的命令指令方法 你可以根据你自己的需求来增加或者修改，甚至可以完全自定义成属于你自己的QQ机器人
+ 5. 如果你觉得使用数据库来进行权限赋予 太麻烦， 你可以将 `self.QQ_num` 和 `self.QQ_numType` 直接改成你想要的 QQ和QQ类型，参数详见上方数据库建立的那两个
 
 
