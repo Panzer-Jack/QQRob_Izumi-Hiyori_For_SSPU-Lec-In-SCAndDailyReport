@@ -62,7 +62,7 @@ pip3 install -r requirements.txt
 
 3. go-cqhttp:  
 go-cqhtt下载: https://docs.go-cqhttp.org/  
-如果你想扩展功能，或者自定义更多的新花样的话 可以具体用法参照文档：[go-cqhtt官方文档](https://docs.go-cqhttp.org/api)  
+如果你想扩展`妃爱酱`的功能，或者自定义更多的新花样的话 或者建立一个属于你自己的QQ机器人的话 可以具体用法参照文档：[go-cqhtt官方文档](https://docs.go-cqhttp.org/api)  
 
 4. chromedriver:   
 首先，你需要确认你的谷歌游览器版本-以及系统：
