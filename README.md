@@ -60,7 +60,15 @@ Hiyori, a cute QQ Robot is used for SSPU Auto deportReport, developped by Python
 pip3 install -r requirements.txt
 ```
 
-3. go-cqhttp:  
+3. go-cqhttp:     
+这里简要介绍一下 该项目是使用Python的 套接字/Requests 实现监听 `127.0.0.1:5701` 端口 来控制QQ机器人
+```
+# 基于go-cqhttp 的 Socket 通信
+ListenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ListenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+ListenSocket.bind(('127.0.0.1', 5701))
+ListenSocket.listen(100)
+```
 go-cqhtt下载: https://docs.go-cqhttp.org/  
 如果你想扩展`妃爱酱`的功能，或者自定义更多的新花样的话 或者建立一个属于你自己的QQ机器人的话 可以具体用法参照文档：[go-cqhtt官方文档](https://docs.go-cqhttp.org/api)  
 
