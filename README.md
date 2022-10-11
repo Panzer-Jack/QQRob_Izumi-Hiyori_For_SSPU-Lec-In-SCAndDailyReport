@@ -1,7 +1,23 @@
+ 
+<p align="center">
+    <img src="https://pic1.imgdb.cn/item/634541a516f2c2beb15a911c.jpg" width="200" height="200" alt="go-cqhttp">
+</p>
+
+<div align="center">
+    
 # 和泉妃爱QQ小助手 
-Hiyori, a cute QQ Robot is used for SSPU Auto deportReport, developped by Python ( Based on go-cqhttp     
-![](https://pic1.imgdb.cn/item/634541a516f2c2beb15a911c.jpg)            
-![](https://img.shields.io/badge/Python-3.7+-blue)  ![](https://img.shields.io/badge/MySQL-MariaDB-green)
+    
+_✨ 基于 [go-cqhttp](https://github.com/mamoe/mirai) 以及 [Python]() 与 [MysQL]()  实现 ✨_  
+    
+Hiyori, a cute QQ Robot is used for SSPU Auto deportReport, developped by Python ( Based on go-cqhttp    
+    
+</div>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/Python-3.7+-blue" alt="license">
+    <img src="https://img.shields.io/badge/MySQL-MariaDB-green" alt="license">
+</p>
+
 
 ## 功能
 - 上海第二工业大学 每日一报 自动打卡 （ 会自动汇报账号池内的用户, 并提供 在QQ内 每日定时自动汇报结果功能
