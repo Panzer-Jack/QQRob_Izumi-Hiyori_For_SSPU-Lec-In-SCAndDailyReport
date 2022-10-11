@@ -1,5 +1,6 @@
 # 和泉妃爱QQ小助手 
 Hiyori, a cute QQ Robot is used for SSPU Auto deportReport, developped by Python ( Based on go-cqhttp     
+![](https://pic1.imgdb.cn/item/634541a516f2c2beb15a911c.jpg)            
 ![](https://img.shields.io/badge/Python-3.7+-blue)  ![](https://img.shields.io/badge/MySQL-MariaDB-green)
 
 ## 功能
