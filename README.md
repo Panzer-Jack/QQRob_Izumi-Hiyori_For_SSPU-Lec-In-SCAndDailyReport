@@ -7,7 +7,7 @@
     
 # 和泉妃爱QQ小助手 
     
-_✨ 基于 [go-cqhttp](https://github.com/mamoe/mirai) 以及 [Python]() 与 [MysQL]()  实现 ✨_  
+_✨ 基于 [go-cqhttp](https://github.com/mamoe/mirai) 以及 [Python]() + [MysQL]()  实现 ✨_  
     
 Hiyori, a cute QQ Robot is used for SSPU Auto deportReport, developped by Python ( Based on go-cqhttp    
     
