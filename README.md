@@ -90,4 +90,32 @@ db = ""
 db_table = ""
 ```
 · 注：这里默认是使用本地数据库接口，若你使用的是云服务器的话可以自行配置 Host 成你的云数据库服务器的IP
+    
+4. 这时候 可以开启go-cqhttp服务器了。     
+    配置好go-cqhttp设置, 然后去你的终端
+    ```
+    go-cqhttp
+    ```
+
+5. 设置定时汇报
+    如果你是Linux 或者 MacOS系统的话, 推荐使用`crontab`:
+    在你的Linux终端：
+    ```Linux
+    crontab -e
+    ```
+    进入 crontab 定时管理  设定一个log 重定向你的脚本到这个log上用于接收执行日志
+    ```Linux
+    2 1-10/1 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
+    30 7 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
+    30 4 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
+    */10 5 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
+    */10 6 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
+    */10 7 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
+    0 7 * * * /usr/bin/python3 /home/pi/Python_Crawler/report_Server.py
+    15 7 * * * /usr/bin/python3 /home/pi/Python_Crawler/report_Server.py
+    ```
+    Q: 你问为什么 要设置那么多脚本执行？        
+    A: 因为我用是树莓派啊。。。所以脚本执行有时候会卡死，为了安全起见当然多设几个 （ 反正学校又没有反爬
+
+
 
