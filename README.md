@@ -114,12 +114,25 @@ db_table = ""
     go-cqhttp
     ```
 
-5. 设置定时汇报
+5. 设置凌晨自动打卡 + 每日早自动汇报签到结果
     如果你是Linux 或者 MacOS系统的话, 推荐使用`crontab`:
     在你的Linux终端：
     ```Linux
     crontab -e
     ```
+    设置你的 crontab 任务：
+    （crontab 语法）
+    ```
+    每五分钟执行   */5 * * * *
+    每小时执行     0 * * * *
+    每天执行       0 0 * * *
+    每周执行       0 0 * * 0
+    每月执行       0 0 1 * *
+    每年执行       0 0 1 1 *
+    ```
+ 
+    如果你不想自己设置的话，也可以用下面的：    
+ 
     进入 crontab 定时管理  设定一个log 重定向你的脚本到这个log上用于接收执行日志
     ```Linux
     2 1-10/1 * * * /usr/bin/python3 /home/pi/Python_Crawler/SSPU_AutoCheck.py >> ~/dailyReport.log
@@ -133,6 +146,11 @@ db_table = ""
     ```
     Q: 你问为什么 要设置那么多脚本执行？        
     A: 因为我用是树莓派啊。。。所以脚本执行有时候会卡死，为了安全起见当然多设几个 （ 反正学校又没有反爬
+ 
+ 6. 开启go-cqhttp 服务器，打开终端执行界面 cd 到该项目文件夹：
+ ```
+ pyhon3 main.py
+ ```
 
 
 
