@@ -8,7 +8,7 @@ import Lec_second_class
 import AuthorityDB_mysql
 import SSPU_AutoCheck
 import report_Server
-import GPIO_test
+# import GPIO_test
 from API import *
 
 null = None
