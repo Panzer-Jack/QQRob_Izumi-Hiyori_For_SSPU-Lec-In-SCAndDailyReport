@@ -4,18 +4,31 @@ import requests
 import socket
 import time
 
+import Lec_second_class
 import AuthorityDB_mysql
 import SSPU_AutoCheck
 import report_Server
-from img_webAPI import *
+import GPIO_test
+from API import *
 
 null = None
 true = True
 
+# x = {"post_type": "message", "message_type": "group", "time": 1664504632, "self_id": 2506205190, "sub_type": "normal",
+#      "anonymous": null, "message": "[CQ:at,qq=2506205190] //cmd: 查询指令-\u003e健康打卡",
+#      "raw_message": "[CQ:at,qq=2506205190] //cmd: 查询指令-\u003e健康打卡",
+#      "sender": {"age": 0, "area": "", "card": "", "level": "", "nickname": "Panzer_Jack", "role": "owner",
+#                 "sex": "unknown", "title": "", "user_id": 1229328963}, "font": 0, "group_id": 553111215,
+#      "message_seq": 6043, "user_id": 1229328963, "message_id": -2122639396}
+#
+# y = {'post_type': 'message', 'message_type': 'private', 'time': 1664893217, 'self_id': 2506205190, 'sub_type': 'friend',
+#      'raw_message': '��˹��', 'font': 0,
+#      'sender': {'age': 0, 'nickname': 'Panzer_Jack', 'sex': 'unknown', 'user_id': 1229328963},
+#      'message_id': -1166300024, 'user_id': 1229328963, 'target_id': 2506205190, 'message': '��˹��'}
+
 SSPU_AccountData_Holiday = SSPU_AutoCheck.SSPU_AccountData_Holiday
 SSPU_AccountData_SchoolDay = SSPU_AutoCheck.SSPU_AccountData_SchoolDay
 
-# 基于go-cqhttp 的 Socket 通信
 ListenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ListenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 ListenSocket.bind(('127.0.0.1', 5701))
@@ -29,7 +42,6 @@ HttpResponseHeader_Continue = '''HTTP/1.1 100 Continue\r\n
 Content-Type: text/html\r\n\r\n
 '''
 
-# 命令池
 command = ["健康打卡_查询指令", "健康打卡_手动打卡", "开启R18模式", "涩图", "添加使用权限", "HOMO图", "劝学"]
 X1_canteen = ["蜂蜜鸡排饭", "牛肉刀削面", "色拉鸡排饭", "牛杂刀削面", "熟菜区：一荤一素一白米饭", "汉堡套餐", "林檎"]
 X2_canteen = ["饺子", "熟菜区：一荤一素一白米饭", "铁板饭"]
@@ -135,6 +147,16 @@ class Rep_Funtion:
         tar_res = learnImg[random.randint(0, len(learnImg))]
         self.send_msg(f'[CQ:image,file={tar_res},id=40004]', num)
 
+    def Lec_S_C(self, num):
+        Lec_SC = Lec_second_class.Lec_S_C()
+        LSC_list = Lec_SC.start_programme()
+        if len(LSC_list):
+            for i in range(0, len(LSC_list)):
+                print(LSC_list)
+                self.send_msg(f'{LSC_list[i]["标题"]}\n{LSC_list[i]["时间"]}\n{LSC_list[i]["地点"]}', num)
+        else:
+            self.send_msg(f'目前没有正在进行 的 第二课堂讲座', num)
+
     def talk(self, recv, num):
         if "摆烂" in recv["raw_message"]:
             if "?" in recv["raw_message"] or "？" in recv["raw_message"]:
@@ -145,10 +167,10 @@ class Rep_Funtion:
             self.is_R18 = 0
             self.send_msg("R18模式关闭", num)
         elif "开灯" in recv["raw_message"]:
-            # GPIO_test.openLight()
+            GPIO_test.openLight()
             self.send_msg("妃爱给你开灯咯！", num)
         elif "关灯" in recv["raw_message"]:
-            # GPIO_test.closeLight()
+            GPIO_test.closeLight()
             self.send_msg("妃爱帮你把灯关拉!", num)
         elif "好累" in recv["raw_message"]:
             self.send_msg("欧尼,别写代码了，来陪妃爱酱一起玩galgame吧！", num)
@@ -158,6 +180,9 @@ class Rep_Funtion:
             self.send_msg("欧尼酱(乖巧)，如果你去勾搭别的小姐姐，我就掐死你哦~", num)
         elif "骂我" in recv["raw_message"]:
             self.send_msg("欧尼酱~ 笨蛋~！", num)
+        elif "第二课堂" in recv["raw_message"] or  "讲座" in recv["raw_message"]:
+            self.send_msg("roger ! Hiyori is trying to get the information now....", num)
+            self.Lec_S_C(num)
         elif "食堂" in recv["raw_message"] or "吃什么" in recv["raw_message"]:
             self.send_msg("嗯嗯, 欧尼，想吃什么呢？妹妹? 一抹多? 还是说。。。wataxi ? ヾ(≧O≦)〃", num)
             try:
@@ -305,3 +330,8 @@ class Rep_Funtion:
         client.send(payload.encode("utf-8"))
         client.close()
 
+
+if __name__ == '__main__':
+    Rep_Server = Rep_Funtion()
+    while 1:
+        Rep_Server.find_command()

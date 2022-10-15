@@ -4,14 +4,8 @@ from datetime import datetime
 from selenium.webdriver.chrome.options import Options
 import selenium.webdriver
 from selenium.webdriver.common.by import By
-import SSPU_AutoCheck
 import time
-
-# 指定每日早上定时汇报的QQ群
-QQ_Group = 720627251
-
-SSPU_AccountData_Holiday = SSPU_AutoCheck.SSPU_AccountData_Holiday
-SSPU_AccountData_SchoolDay = SSPU_AutoCheck.SSPU_AccountData_SchoolDay
+from API import *
 
 
 class SchoolAutoCheckOK:
@@ -22,7 +16,7 @@ class SchoolAutoCheckOK:
         self.name = self.data = self.time = self.flag = None
         self.first = first
 
-        # 反爬
+        # 反爬技术
         self.opt = Options()
         self.opt.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.opt.add_experimental_option('useAutomationExtension', False)

@@ -1,18 +1,14 @@
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
 from datetime import datetime
 from selenium.webdriver.chrome.options import Options
 import selenium.webdriver
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 import time
+from API import *
 
-# 二工大 用户池 ---------------> 字面意思 假期 / 在校 （其实都无所谓的）
-SSPU_AccountData_Holiday = [
-    {"账号": "20211145140", "密码": "20211145140",
-     "地址": ["上海", "上海市", "浦东新区", "金海路2360号上海第二工业大学"]}]
-
-SSPU_AccountData_SchoolDay = [
-    {"账号": "20211145140", "密码": "20211145140",
-     "地址": ["上海", "上海市", "浦东新区", "金海路2360号上海第二工业大学"]}]
 
 
 # 爬虫程序
@@ -22,7 +18,7 @@ class SchoolAutoCheckIn:
         self.password = SSPU_AccountData["密码"]
         self.location = SSPU_AccountData["地址"]
 
-        # 反爬
+        # 反爬技术
         self.opt = Options()
         self.opt.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.opt.add_experimental_option('useAutomationExtension', False)
