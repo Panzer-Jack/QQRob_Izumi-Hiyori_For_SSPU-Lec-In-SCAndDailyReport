@@ -167,10 +167,10 @@ class Rep_Funtion:
             self.is_R18 = 0
             self.send_msg("R18模式关闭", num)
         elif "开灯" in recv["raw_message"]:
-            GPIO_test.openLight()
+            # GPIO_test.openLight()
             self.send_msg("妃爱给你开灯咯！", num)
         elif "关灯" in recv["raw_message"]:
-            GPIO_test.closeLight()
+            # GPIO_test.closeLight()
             self.send_msg("妃爱帮你把灯关拉!", num)
         elif "好累" in recv["raw_message"]:
             self.send_msg("欧尼,别写代码了，来陪妃爱酱一起玩galgame吧！", num)
