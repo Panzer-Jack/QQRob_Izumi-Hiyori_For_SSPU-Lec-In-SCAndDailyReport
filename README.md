@@ -1,6 +1,6 @@
  
 <p align="center">
-    <img src="https://pic.imgdb.cn/item/6376fee616f2c2beb1e8c2fd.png" height="200" alt="go-cqhttp">
+    <img src="https://pic.imgdb.cn/item/6376fee616f2c2beb1e8c2fd.png" height="300" alt="go-cqhttp">
 </p>
 
 <div align="center">
