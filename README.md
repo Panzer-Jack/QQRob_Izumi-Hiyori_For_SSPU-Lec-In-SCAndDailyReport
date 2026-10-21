@@ -85,15 +85,15 @@ go-cqhtt下载: https://docs.go-cqhttp.org/
 <mark><strong><big><font face="courier New" color=#1E90FF>好！正式进入使用介绍：<big></font><strong></mark>
 
 ## 使用教程：
-1. 在`API.py`内配置 校园账号-用户池 写入所有你想要自动打卡的用户信息（会自动汇报完账号池内所有的账号）
+1. 在`API.py`内配置 校园账号-用户池 写入所有你想要自动打卡的用户信息（会自动汇报完账号池内所有的账号）。请勿将真实账号密码提交到版本控制。
 ```python3
 # 二工大 用户池 ---------------> 字面意思 那个 假期 / 在校 （其实都无所谓的）
 SSPU_AccountData_Holiday = [
-    {"账号": "20211145140", "密码": "hengheng@1145141919810",
+    {"账号": "YOUR_SSPU_ACCOUNT", "密码": "YOUR_PASSWORD",
      "地址": ["上海", "上海市", "浦东新区", "金海路2360号上海第二工业大学"]}]
 
 SSPU_AccountData_SchoolDay = [
-    {"账号": "20211145140", "密码": "hengheng@1145141919810",
+    {"账号": "YOUR_SSPU_ACCOUNT", "密码": "YOUR_PASSWORD",
      "地址": ["上海", "上海市", "浦东新区", "金海路2360号上海第二工业大学"]}]
 ```           
 
