@@ -12,10 +12,6 @@ web_RanImg_R18_url = "https://ybapi.cn/API/setu.php"
 QQ_Group = 720627251
 
 # SSPU School Account | 二工大 账号池 字面意思 那个 假期 / 在校 （其实都无所谓的）---------------->
-SSPU_AccountData_Holiday = [
-    {"账号": "20211145140", "密码": "hengheng@1145141919810",
-     "地址": ["上海", "上海市", "浦东新区", "金海路2360号上海第二工业大学"]}]
+SSPU_AccountData_Holiday = []
 
-SSPU_AccountData_SchoolDay = [
-    {"账号": "20211145140", "密码": "hengheng@1145141919810",
-     "地址": ["上海", "上海市", "浦东新区", "金海路2360号上海第二工业大学"]}]
+SSPU_AccountData_SchoolDay = []
